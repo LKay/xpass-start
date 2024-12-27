@@ -1,0 +1,10 @@
+[Unit]
+After=sockets.target network-online.target
+Description=xpass setup
+
+[Service]
+User=root
+ExecStart=/bin/bash /root/xpasssetup.sh
+
+[Install]
+WantedBy=multi-user.target
