@@ -10,9 +10,11 @@ HEARTBEAT_ADDR="1.1.1.1"
 
 # === USER CONFIGURATION END ===
 
+SERVICE_NAME="xpass-tunnel"
+
 log() {
   TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
-  logger -t "xpass-tunnel" "$TIMESTAMP: $@"
+  logger -t "$SERVICE_NAME" "$TIMESTAMP: $@"
 }
 
 UDM_MODEL=$(ubnt-device-info model)
