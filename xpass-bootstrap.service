@@ -1,0 +1,12 @@
+[Unit]
+Description=Bootstrap DS-Lite Tunnel Service on UDM boot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/mnt/data/xpass-tunnel/xpass-bootstrap.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

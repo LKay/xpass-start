@@ -1,0 +1,21 @@
+[Unit]
+Description=DS-Lite (Xpass) Tunnel Service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/mnt/data/xpass-tunnel/xpass-tunnel.sh
+WorkingDirectory=/mnt/data/xpass-tunnel
+WatchdogSec=60
+NotifyAccess=all
+Restart=always
+RestartSec=5
+ExecStop=/bin/kill -s SIGTERM $MAINPID
+KillMode=process
+Type=notify
+StandardOutput=journal
+StandardError=journal
+TimeoutStopSec=10
+
+[Install]
+WantedBy=multi-user.target
